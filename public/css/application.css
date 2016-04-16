@@ -96,5 +96,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.img-responsive {
+  width: 200px;
+  height: 150px;
+}
 
 
