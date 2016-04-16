@@ -1,10 +1,3 @@
-get '/' do
-
-  erb :index
-
-
-end
-
 post '/login' do
   user = User.find_by(email: params[:email])
   if user.authenticate(params[:password])
