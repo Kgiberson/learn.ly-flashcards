@@ -4,12 +4,12 @@
     <form method="post" action="/users/<%=@id%>/decks/<%=@deck.id%>">
       <p><strong>Question <%=card.id%>.<br> <%= card.question %></strong></p><br>
   		<div class="radio">
-  			<input type="radio" name="answer<%=card.id%>" value="TRUE" checked> True<br>
+  			<input type="radio" name="answer<%=card.id%>" value="true" checked> True<br>
   		</div>
   		<div class="radio">
-  			<input type="radio" name="answer<%=card.id%>" value="FALSE"> False
+  			<input type="radio" name="answer<%=card.id%>" value="false"> False
   		</div>
-	  </form>
+
     </div>
   <% end %>
   <div class="login">
