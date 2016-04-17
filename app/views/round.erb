@@ -2,7 +2,7 @@
   <% @cards.each do |card| %>
     <div class="form">
     <form>
-      <p><strong>Question <%=card.id%>) <%= card.question %></strong></p><br>
+      <p><strong>Question <%=card.id%>.<br> <%= card.question %></strong></p><br>
   		<div class="radio">
   			<input type="radio" name="answer<%=card.id%>" value="true" checked> True<br>
   		</div>
@@ -12,7 +12,7 @@
 	  </form>
     </div>
   <% end %>
-  	<p><input class="btn-primary" style="padding: 2%, width: 45%" type="submit" value="Submit"></p>
+  	<p><input class="btn-primary" type="submit" value="Submit"></p>
   	</div>
 	</form>
 </div>
