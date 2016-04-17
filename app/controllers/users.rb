@@ -30,7 +30,10 @@ post '/sign_up' do
 end
 
 get '/users/:user_id/decks' do
-  @user = User.find(params[:user_id])
+  if params[:user_id].is_a? Integer
+    @user = User.find(params[:user_id])
+  end
+  @id = session[:id]
   erb :deck_view
 end
 
