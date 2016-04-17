@@ -39,7 +39,9 @@ get '/logout' do
 end
 
 get '/users/:user_id/decks/:id' do
-  deck = Deck.find(params[:id])
-  user = User.find(session[:user_id])
-  user.round.create()
+  # deck = Deck.find(params[:id])
+  # user = User.find(session[:user_id])
+  # user.round.create()
+  @cards = Card.where(deck_id: params[:id])
+  erb :round
 end

@@ -1,0 +1,8 @@
+<div class="container">
+  <% @cards.each do |card| %>
+    <div class="form">
+      <p><%= card.question %></p><br>
+      <p><%= card.answer %></p>
+    </div>
+  <% end %>
+</div>
