@@ -1,0 +1,18 @@
+<div class="container">
+ <div class="form">
+   <div class="profile">
+     <ul class="nav nav-pills nav-stacked">
+       <h3><li><%= "#{@user.first_name}'s Profile" %> </li></h3>
+       <br>
+       <form action="/users/<%=user.id%>/rounds" method="get">
+         <div>
+             <h1>Your previous rounds</h1>
+            <!--  <%@rounds.each do |round|%>
+               <%deck = Deck.find(round.deck_id)%>
+               <p> When you played <%=deck.name%> you got <%=%> wrong on the first play through, and you guessed a total of 10 times. <p> <br>
+             <%end%> -->
+         <div>
+       </form>
+   </div>
+ </div>
+</div>
