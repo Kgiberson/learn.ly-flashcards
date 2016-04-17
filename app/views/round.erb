@@ -1,7 +1,7 @@
 <div class="container">
   <% @cards.each do |card| %>
     <div class="form">
-    <form method="post" action="/users/<%=@user.id%>/decks/<%=@deck.id%>">
+    <form method="post" action="/users/<%=@id%>/decks/<%=@deck.id%>">
       <p><strong>Question <%=card.id%>.<br> <%= card.question %></strong></p><br>
   		<div class="radio">
   			<input type="radio" name="answer<%=card.id%>" value="TRUE" checked> True<br>
