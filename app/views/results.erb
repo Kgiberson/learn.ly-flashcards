@@ -13,15 +13,4 @@
       </div>
     <% end %>
   <% end %>
-
-  <%if session[:user_id].length > 100000 %>
-    <div class="form">
-      <h2><a href="/sign_up/new"><input class="button-color" type="submit" value="Enjoyed playing? Create an account!"></a></h2>
-    </div>
-  <% else %>
-    <div class="form">
-      <h2><a href="/users/<%=@user_id%>/decks">Play another deck!</a></h2>
-    </div>
-  <% end %>
-  
 </div>
