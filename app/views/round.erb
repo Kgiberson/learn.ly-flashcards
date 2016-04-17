@@ -1,13 +1,13 @@
 <div class="container">
-  <% @cards.each do |card| %>
+  <% @cards.each_with_index do |card, i| %>
     <div class="form">
     <form method="post" action="/users/<%=@id%>/decks/<%=@deck.id%>">
       <p><strong>Question <%=card.id%>.<br> <%= card.question %></strong></p><br>
   		<div class="radio">
-  			<input type="radio" name="answer<%=card.id%>" value="true" checked> True<br>
+  			<input type="radio" name="answer<%=@range[i]%>" value="TRUE" checked> True<br>
   		</div>
   		<div class="radio">
-  			<input type="radio" name="answer<%=card.id%>" value="false"> False
+  			<input type="radio" name="answer<%=@range[i]%>" value="FALSE"> False
   		</div>
 
     </div>
