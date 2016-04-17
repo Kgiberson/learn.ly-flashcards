@@ -1,13 +1,13 @@
 <div class="container">
+
   <div class="form">
-  <h2>Way to go!</h2><p>You got <strong><%=@number_correct%> out of <%=@cards.length%></strong> correct for the <%=@deck.name%> flashcard deck!</p>
+  <h2>Great effort!</h2><p>You got <strong><%=@number_correct%> out of <%=@cards.length%></strong> correct for the <%=@deck.name%> flashcard deck!</p>
   </div>
 
   <%if @wrong_cards.length > 0%>
     <h3 style="text-align: center;">Below are the cards you missed with the correct answers. Make sure you review:</h3>
     <% @wrong_cards.each do |card| %>
       <div class="form">
-        <p><strong>Question <%=card.id%></strong></p>
         <p><strong><%= card.question %></strong></p>
         <p><%= card.answer %></p>
       </div>

@@ -53,6 +53,7 @@ get '/users/:user_id/decks/:id' do
   @deck = Deck.find(params[:id])
   @id = params[:user_id]
   @cards = Card.where(deck_id: @deck.id)
+  @range = Array (1..10)
   erb :round
 end
 
@@ -62,7 +63,7 @@ post '/users/:user_id/decks/:id' do
   @deck = Deck.find(params[:id].to_i)
 
 
-  @user_answers = [params[:answer1],params[:answer2],params[:answer3],params[:answer4],params[:answer5],params[:answer6],params[:answer7],params[:answer8],params[:answer9],params[:answer10]]
+  @user_answers = [params[:answer1],params[:answer2],params[:answer3],params[:answer4],params[:answer5],params[:answer6],params[:answer7],params[:answer8],params[:answer9],params[:answer0]]
 
   @wrong_cards = []
     @cards.each_with_index do |card, i|
