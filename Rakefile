@@ -1,5 +1,6 @@
 require 'rake'
 require 'rspec/core/rake_task'
+require 'csv'
 
 
 require ::File.expand_path('../config/environment', __FILE__)
@@ -134,3 +135,6 @@ desc "Run the specs"
 RSpec::Core::RakeTask.new(:spec)
 
 task :default  => :specs
+
+
+
