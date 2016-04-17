@@ -8,7 +8,6 @@
     <h3 style="text-align: center;">Below are the cards you missed with the correct answers. Make sure you review:</h3>
     <% @wrong_cards.each do |card| %>
       <div class="form">
-        <p><strong>Question <%=card.id%></strong></p>
         <p><strong><%= card.question %></strong></p>
         <p><%= card.answer %></p>
       </div>
