@@ -30,9 +30,6 @@ post '/sign_up' do
 end
 
 get '/users/:user_id/decks' do
-  # if params[:user_id].is_a? Integer
-  #   @user = User.find(params[:user_id])
-  # end
   @id = params[:user_id]
   erb :deck_view
 end
@@ -44,9 +41,6 @@ end
 
 get '/users/:user_id/decks/:id' do
   @deck = Deck.find(params[:id])
-  if params[:user_id].is_a? Integer
-    @user = User.find(params[:user_id])
-  end
   @id = params[:user_id]
   @cards = Card.where(deck_id: @deck.id)
   erb :round

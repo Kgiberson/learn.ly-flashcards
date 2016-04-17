@@ -105,7 +105,9 @@ body {
   max-width: 80%;
 }
 
-.btn-primary{
-  padding: 2%;
-  margin-left: 45%;
+.login .submit{
+  padding: 5%;
+  margin-left: 35%;
+  background: #66b3ff;
 }
+
