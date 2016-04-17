@@ -5,7 +5,7 @@ http = Deck.create(name: "HTTP")
 cs_concepts = Deck.create(name: "CS Concepts")
 agile = Deck.create(name: "Agile")
 
-csv = CSV.open("flashcard_content.csv", headers: true, header_converters: :symbol, converters: :all)
+csv = CSV.open("public/flashcard_content.csv", headers: true, header_converters: :symbol, converters: :all)
 card_object_array = []
 csv.to_a.map do |row|
   card_object_array << Card.new(row.to_hash)
