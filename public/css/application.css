@@ -105,4 +105,7 @@ body {
   max-width: 80%;
 }
 
-
+.btn-primary{
+  padding: 2%;
+  margin-left: 45%;
+}
