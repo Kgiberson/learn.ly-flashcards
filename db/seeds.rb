@@ -5,18 +5,6 @@ http = Deck.create(name: "HTTP")
 cs_concepts = Deck.create(name: "CS Concepts")
 agile = Deck.create(name: "Agile")
 
-# # sinatra = Deck.find(1)
-# sinatra.cards.create(question: "Is this a question?", answer: true)
-# sinatra.cards.create(question: "Is this a question(2)?", answer: true)
-# sinatra.cards.create(question: "Is this a question?", answer: true)
-# sinatra.cards.create(question: "Is this a question?", answer: true)
-# sinatra.cards.create(question: "Is this a question(2334)?", answer: true)
-# sinatra.cards.create(question: "Is this a question?", answer: true)
-# sinatra.cards.create(question: "Is this a question?", answer: true)
-# sinatra.cards.create(question: "Is this a question?(23234687)", answer: true)
-# sinatra.cards.create(question: "Is this a question?", answer: true)
-# sinatra.cards.create(question: "Is this a question?", answer: true)
-
 csv = CSV.open("flashcard_content.csv", headers: true, header_converters: :symbol, converters: :all)
 card_object_array = []
 csv.to_a.map do |row|

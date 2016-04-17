@@ -3,8 +3,8 @@ get '/login' do
 end
 
 post '/login' do
-  user = User.find_by(email: params[:email])
-  if user.authenticate(params[:password])
+  @user = User.find_by(user_name: params[:user_name])
+  if @user.authenticate(params[:password])
     session[:user_id] = user.id
     redirect "/users/#{user.id}/profile"
   else
@@ -35,7 +35,7 @@ get '/users/:user_id/decks' do
 end
 
 get '/logout' do
-  sessions.delete(:user_id)
+  session.clear
   redirect '/'
 end
 
@@ -48,22 +48,24 @@ end
 
 
 post '/users/:user_id/decks/:id' do
-  cards = Card.where("deck_id = ?", params[:id])
-  user_answers = [params[:answer1],params[:answer2],params[:answer3],params[:answer4],params[:answer5],params[:answer6],params[:answer7],params[:answer8],params[:answer9],params[:answer10]]
+  @cards = Card.where("deck_id = ?", params[:id].to_i)
+  @deck = Deck.find(params[:id].to_i)
 
-  index_of_wrong = []
-    cards.each_with_index do |card, i| 
-      if card.answer != user_answers[i]
-        index_of_wrong << i
+
+  @user_answers = [params[:answer1],params[:answer2],params[:answer3],params[:answer4],params[:answer5],params[:answer6],params[:answer7],params[:answer8],params[:answer9],params[:answer10]]
+
+  @wrong_cards = []
+    @cards.each_with_index do |card, i| 
+      if card.answer != @user_answers[i]
+        @wrong_cards << card
       end
     end
 
-  wrong_cards = []
-  index_of_wrong.each do |wrong_index|
-    wrong_cards << cards[wrong_index]
-  end
-  p wrong_cards
-  erb :round
+  @number_correct = @cards.length - @wrong_cards.length
+
+  @user_id = params[:user_id]
+  
+  erb :results
 end
 
 
