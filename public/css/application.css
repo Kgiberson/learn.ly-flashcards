@@ -105,9 +105,7 @@ body {
   max-width: 80%;
 }
 
-/*input[type=radio] {
-    display: inline;
-    margin: 0 auto;
-    float: center;
-}*/
-
+.btn-primary{
+  padding: 2%;
+  margin-left: 45%;
+}
