@@ -5,14 +5,27 @@ http = Deck.create(name: "HTTP")
 cs_concepts = Deck.create(name: "CS Concepts")
 agile = Deck.create(name: "Agile")
 
-# sinatra = Deck.find(1)
-sinatra.cards.create(question: "Is this a question?", answer: true)
-sinatra.cards.create(question: "Is this a question(2)?", answer: true)
-sinatra.cards.create(question: "Is this a question?", answer: true)
-sinatra.cards.create(question: "Is this a question?", answer: true)
-sinatra.cards.create(question: "Is this a question(2334)?", answer: true)
-sinatra.cards.create(question: "Is this a question?", answer: true)
-sinatra.cards.create(question: "Is this a question?", answer: true)
-sinatra.cards.create(question: "Is this a question?(23234687)", answer: true)
-sinatra.cards.create(question: "Is this a question?", answer: true)
-sinatra.cards.create(question: "Is this a question?", answer: true)
+# # sinatra = Deck.find(1)
+# sinatra.cards.create(question: "Is this a question?", answer: true)
+# sinatra.cards.create(question: "Is this a question(2)?", answer: true)
+# sinatra.cards.create(question: "Is this a question?", answer: true)
+# sinatra.cards.create(question: "Is this a question?", answer: true)
+# sinatra.cards.create(question: "Is this a question(2334)?", answer: true)
+# sinatra.cards.create(question: "Is this a question?", answer: true)
+# sinatra.cards.create(question: "Is this a question?", answer: true)
+# sinatra.cards.create(question: "Is this a question?(23234687)", answer: true)
+# sinatra.cards.create(question: "Is this a question?", answer: true)
+# sinatra.cards.create(question: "Is this a question?", answer: true)
+
+csv = CSV.open("flashcard_content.csv", headers: true, header_converters: :symbol, converters: :all)
+card_object_array = []
+csv.to_a.map do |row|
+  card_object_array << Card.new(row.to_hash)
+end
+
+sinatra.cards = card_object_array[0..9]
+javascript.cards = card_object_array[10..19]
+activerecord.cards = card_object_array[20..29]
+http.cards = card_object_array[30..39]
+cs_concepts.cards = card_object_array[40..49]
+agile.cards = card_object_array[50..59]
