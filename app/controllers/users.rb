@@ -63,7 +63,7 @@ post '/users/:user_id/decks/:id' do
   @deck = Deck.find(params[:id].to_i)
 
 
-  @user_answers = [params[:answer1],params[:answer2],params[:answer3],params[:answer4],params[:answer5],params[:answer6],params[:answer7],params[:answer8],params[:answer9],params[:answer0]]
+  @user_answers = [params[:answer1],params[:answer2],params[:answer3],params[:answer4],params[:answer5],params[:answer6],params[:answer7],params[:answer8],params[:answer9],params[:answer10]]
 
   @wrong_cards = []
     @cards.each_with_index do |card, i|
@@ -77,11 +77,14 @@ post '/users/:user_id/decks/:id' do
 end
 
 get '/users/:user_id/rounds' do
-  @user = User.find(params[:user_id])
-  if @user.id = session[:id]
+  @id = params[:user_id]
+  if @id.length > 9
+    redirect '/users/#{@id}/decks'
+  else
+    @user = User.find(params[:user_id])
+    if @user.id = session[:id]
     @rounds = Round.where(user_id: @user.id)
     erb :profile
-  else
-  "Access denied"
+    end
   end
 end
