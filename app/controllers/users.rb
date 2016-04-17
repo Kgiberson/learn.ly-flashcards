@@ -16,7 +16,7 @@ post '/sign_up' do
   user = User.new(last_name: params[:last_name], first_name: params[:first_name], user_name: params[:user_name], email: params[:email], password: params[:password])
   user.save
   if user.save
-    redirect "/users/#{user.id}/profile"
+    redirect "/users/deck_view"
   end
 end
 
