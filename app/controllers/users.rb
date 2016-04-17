@@ -25,7 +25,7 @@ post '/sign_up' do
   user = User.new(last_name: params[:last_name], first_name: params[:first_name], user_name: params[:user_name], email: params[:email], password: params[:password])
   user.save
   if user.save
-    redirect "/users/:user_id/decks"
+    redirect "/users/#{user.id}/decks"
   end
 end
 
@@ -43,5 +43,11 @@ get '/users/:user_id/decks/:id' do
   # user = User.find(session[:user_id])
   # user.round.create()
   @cards = Card.where(deck_id: params[:id])
+  session[:cards] = @cards
   erb :round
+end
+
+post '/users/:user_id/decks/:id' do
+  cards = session[:cards]
+  anwers = params
 end
