@@ -105,4 +105,9 @@ body {
   max-width: 80%;
 }
 
+/*input[type=radio] {
+    display: inline;
+    margin: 0 auto;
+    float: center;
+}*/
 
