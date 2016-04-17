@@ -68,6 +68,16 @@ post '/users/:user_id/decks/:id' do
   erb :results
 end
 
+get '/users/:user_id/rounds' do
+  @user = User.find(params[:user_id])
+  if @user.id = session[:id]
+    @rounds = Round.where(user_id: @user.id)
+    erb :profile
+  else
+  "Access denied"
+  end
+end
+
 
 
 
