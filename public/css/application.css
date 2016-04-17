@@ -101,4 +101,8 @@ body {
   height: 150px;
 }
 
+.row-object{
+  max-width: 80%;
+}
+
 
