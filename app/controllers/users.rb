@@ -2,14 +2,24 @@ get '/login' do
   erb :sign_in
 end
 
+# post '/login' do
+#   @user = User.find_by(user_name: params[:user_name])
+#   if @user.authenticate(params[:password])
+#     session[:user_id] = user.id
+#     redirect "/users/#{user.id}/profile"
+#   else
+#     erb :sign_in
+#   end
+# end
+
 post '/login' do
-  @user = User.find_by(user_name: params[:user_name])
-  if @user.authenticate(params[:password])
+	user = User.find_by(user_name: params[:user_name])
+	if user && user.password == params[:password]
     session[:user_id] = user.id
-    redirect "/users/#{user.id}/profile"
-  else
-    erb :sign_in
-  end
+		redirect "/users/#{user.id}/decks"
+	else
+		erb :sign_in
+	end
 end
 
 get '/guest/login' do
@@ -55,16 +65,13 @@ post '/users/:user_id/decks/:id' do
   @user_answers = [params[:answer1],params[:answer2],params[:answer3],params[:answer4],params[:answer5],params[:answer6],params[:answer7],params[:answer8],params[:answer9],params[:answer10]]
 
   @wrong_cards = []
-    @cards.each_with_index do |card, i| 
+    @cards.each_with_index do |card, i|
       if card.answer != @user_answers[i]
         @wrong_cards << card
       end
     end
-
   @number_correct = @cards.length - @wrong_cards.length
-
   @user_id = params[:user_id]
-  
   erb :results
 end
 
@@ -77,22 +84,3 @@ get '/users/:user_id/rounds' do
   "Access denied"
   end
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
