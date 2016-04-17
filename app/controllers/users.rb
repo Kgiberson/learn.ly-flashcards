@@ -49,5 +49,6 @@ end
 
 post '/users/:user_id/decks/:id' do
   cards = session[:cards]
-  anwers = params
+
+  answers = params[answer]
 end

@@ -1,8 +1,18 @@
 <div class="container">
   <% @cards.each do |card| %>
     <div class="form">
-      <p><%= card.question %></p><br>
-      <p><%= card.answer %></p>
+    <form method="post" action="/users/<%=@user.id%>/decks/<%=@deck.id%>">
+      <p><strong>Question <%=card.id%>.<br> <%= card.question %></strong></p><br>
+  		<div class="radio">
+  			<input type="radio" name="answer<%=card.id%>" value="TRUE" checked> True<br>
+  		</div>
+  		<div class="radio">
+  			<input type="radio" name="answer<%=card.id%>" value="FALSE"> False
+  		</div>
+	  </form>
     </div>
   <% end %>
+  	<p><input class="btn-primary" type="submit" value="Submit"></p>
+  	</div>
+	</form>
 </div>
