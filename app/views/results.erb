@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="form">
+  <h2>Way to go!</h2><p>You got <strong><%=@number_correct%> out of <%=@cards.length%></strong> correct for the <%=@deck.name%> flashcard deck!</p>
+  </div>
+
+  <%if @wrong_cards.length > 0%>
+    <h3 style="text-align: center;">Below are the cards you missed with the correct answers. Make sure you review:</h3>
+    <% @wrong_cards.each do |card| %>
+      <div class="form">
+        <p><strong>Question <%=card.id%></strong></p>
+        <p><strong><%= card.question %></strong></p>
+        <p><%= card.answer %></p>
+      </div>
+    <% end %>
+  <% end %>
+
+  <%if session[:user_id].length > 100000 %>
+    <div class="form">
+      <h2><a href="/sign_up/new"><input class="button-color" type="submit" value="Enjoyed playing? Create an account!"></a></h2>
+    </div>
+  <% else %>
+    <div class="form">
+      <h2><a href="/users/<%=@user_id%>/decks">Play another deck!</a></h2>
+    </div>
+  <% end %>
+  
+</div>
