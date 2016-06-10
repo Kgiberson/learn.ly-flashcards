@@ -7,7 +7,7 @@ The first MVP of Learn.ly was completed in 2 days.
 ## Deployment
 
 Learn.ly is deployed on Heroku
-*[Production](http://hidden-eyrie-65048.herokuapp.com/)
+Check it out [here](http://hidden-eyrie-65048.herokuapp.com/)
 
 ## Git Workflow
 
@@ -20,7 +20,6 @@ Learn.ly is deployed on Heroku
 6. create pull request on github from feature-branch to test-master
 7. ask another member of the team to merge pull request
 
-##
 
 ## Contribute
 
