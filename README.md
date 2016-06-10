@@ -22,6 +22,10 @@ Check it out [here](http://hidden-eyrie-65048.herokuapp.com/)
 7. ask another member of the team to merge pull request
 
 
+## Schema
+
+![schema](schema.png)
+
 ## Contribute
 
 Contributions are welcome! Make an individual pull request for features you'd like to add to and keep descriptions short, simple and descriptive. 
